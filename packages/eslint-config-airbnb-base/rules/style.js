@@ -396,7 +396,22 @@ module.exports = {
 
     // Require or disallow padding lines between statements
     // https://eslint.org/docs/rules/padding-line-between-statements
-    'padding-line-between-statements': 'off',
+    'padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'always',
+        prev: [
+          'block',
+          'block-like',
+          'cjs-export',
+          'class',
+          'export',
+          'import'
+        ],
+        next: '*'
+      },
+      { blankLine: 'any', prev: ['export', 'import'], next: ['export', 'import'] }
+    ],
 
     // require quotes around object literal property names
     // https://eslint.org/docs/rules/quote-props.html
